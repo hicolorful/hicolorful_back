@@ -3,6 +3,7 @@ package com.example.kurly_hack_festa.Service;
 import com.example.kurly_hack_festa.DTO.ReviewPreferenceResponseDto;
 import com.example.kurly_hack_festa.Entity.Category;
 import com.example.kurly_hack_festa.Entity.ReviewPreference;
+import com.example.kurly_hack_festa.Exception.NoDateException;
 import com.example.kurly_hack_festa.Repository.CategoryRepository;
 import com.example.kurly_hack_festa.Repository.ReviewPreferenceRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +20,15 @@ public class ReviewPreferenceService {
     private final CategoryRepository categoryRepository;
 
     public List<ReviewPreferenceResponseDto> getReviewPreference(String categoryName) {
-//        List<ReviewPreference> preferences = this.reviewPreferenceRepository.getAllByCategory_name(categoryName);
         Category category = this.categoryRepository.getByName(categoryName);
         List<ReviewPreferenceResponseDto> res = new ArrayList<>();
 
         Integer minPrice = this.reviewPreferenceRepository.getMinPrice(category.getId());
         Integer maxPrice = this.reviewPreferenceRepository.getMaxPrice(category.getId());
+
+        if (minPrice == null || maxPrice == null) {
+            throw new NoDateException("해당 카테고리에 데이터가 없습니다.");
+        }
 
         int unit = (maxPrice - minPrice) / 6;
 
