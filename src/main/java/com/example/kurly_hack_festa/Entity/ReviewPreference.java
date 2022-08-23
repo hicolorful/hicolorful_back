@@ -23,6 +23,8 @@ public class ReviewPreference {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    private Integer price;
+
     @Column(columnDefinition = "Decimal (20, 16)")
     private Double pricePrefer;
 }
