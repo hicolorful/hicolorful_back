@@ -16,6 +16,6 @@ public interface ReviewPreferenceRepository extends JpaRepository<ReviewPreferen
     @Query(value = "SELECT max(price) FROM review_preference WHERE review_preference.category_id = :categoryId", nativeQuery = true)
     Integer getMaxPrice(@Param("categoryId") Long categoryId);
 
-    @Query(value = "SELECT * FROM review_preference WHERE review_preference.category_id = :categoryId AND review_preference.price BETWEEN :maxPrice AND :minPrice", nativeQuery = true)
+    @Query(value = "SELECT * FROM review_preference WHERE review_preference.category_id = :categoryId AND review_preference.price >= :maxPrice AND review_preference.price < :minPrice", nativeQuery = true)
     List<ReviewPreference> getAllByUnit(@Param("categoryId") Long categoryId, @Param("maxPrice") Integer maxPrice, @Param("minPrice") Integer minPrice);
 }
