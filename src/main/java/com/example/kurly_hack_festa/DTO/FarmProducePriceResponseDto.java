@@ -8,5 +8,5 @@ import java.util.Date;
 public class FarmProducePriceResponseDto {
     private String produceName;
     private Integer price;
-    private Date date;
+    private String date;
 }

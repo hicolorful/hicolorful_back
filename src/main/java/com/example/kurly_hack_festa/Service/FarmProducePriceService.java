@@ -34,7 +34,7 @@ public class FarmProducePriceService {
             FarmProducePriceResponseDto farmProducePriceResponseDto = new FarmProducePriceResponseDto();
             farmProducePriceResponseDto.setPrice(farmProducePrice.getPrice());
             farmProducePriceResponseDto.setProduceName(farmProducePrice.getProduceName());
-            farmProducePriceResponseDto.setDate(farmProducePrice.getDate());
+            farmProducePriceResponseDto.setDate(farmProducePrice.getDate().toString());
             res.add(farmProducePriceResponseDto);
         }
 
