@@ -27,3 +27,5 @@ GET  {{base_url}}/compare/:product_id
 ```
 GET  {{base_url}}/reasonable-price?category={{category_name}}
 ```
+## API 명세서
+https://documenter.getpostman.com/view/13577383/VUqpuxtY
