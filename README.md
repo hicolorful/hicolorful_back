@@ -1,4 +1,6 @@
 # 2022 HACK FESTA 컬러풀 팀 백엔드 서버
+## 서비스 구조도
+![image](https://github.com/hicolorful/hicolorful_back/assets/62099953/a503ebaa-a111-479c-86a6-ad21ba7e0727)
 
 ## 실행 방법
 ```
